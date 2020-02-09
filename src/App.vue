@@ -63,7 +63,7 @@
         </v-content>
         <v-dialog
                 v-model="dialog"
-                width="800px"
+                width="900px"
         >
             <v-card>
                 <v-card-title class="blue darken-4 white">
@@ -86,9 +86,11 @@
                                 </div>
                             </v-container>
                         </v-col>
+                        <v-spacer></v-spacer>
                         <v-col cols="5" class="ml-12">
-<!--                            <v-card elevation="6" height="390" class="ml-3">-->
-<!--                            </v-card>-->
+                            <v-card >
+                                <Conversation></Conversation>
+                            </v-card>
                         </v-col>
                     </v-row>
                 </v-container>
@@ -100,10 +102,10 @@
 <script>
     import axios from 'axios';
     import {router} from "@/router/route";
-    // import Conversation from "./components/Conversation";
+    import Conversation from "./components/Conversation";
 
     export default {
-        // components: {Conversation},
+        components: {Conversation},
         props: {
             source: String,
         },
@@ -135,7 +137,7 @@
                 console.log('The blob data:', data.blob);
                 let formData = new FormData();
                 formData.append("audio", data.blob);
-                axios.post('https://shiny-ehear.herokuapp.com/receive',
+                axios.post('http://f77171d6.ngrok.io/receive',
                     formData,
                     {
                         headers: {

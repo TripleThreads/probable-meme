@@ -18,11 +18,4 @@ let config = {
 
 
 const firebase = Firebase.initializeApp(config);
-const db = firebase.firestore();
-export const transcript = db.collection('transcripts');
-transcript.get().then(
-    resp => {
-        console.log(resp);
-    }
-)
-export default db;
+export const firestore = firebase.firestore();
